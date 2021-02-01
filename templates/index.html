@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KhataBook</title>
+</head>
+<body>
+    <form method="POST">
+    {% csrf_token %}
+        <input type="text" name="party" list="all_party" placeholder="Party Name" >
+        <datalist id="all_party">
+            {% for p in all_party %}
+            <option value="{{p.number}}">{{p.name}}</option>
+            {% endfor %}
+          </datalist><br>
+        <input type="date" name="date" placeholder="Date"><br>
+        <input type="text" name="amount" placeholder="Amount"><br>
+        <input type="text" name="description" placeholder="Description"><br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
